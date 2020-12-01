@@ -18,8 +18,10 @@ router.post("/login", (req, res) => {
   con.query(
     `SELECT * FROM users WHERE username = '${username}'`,
     (err, result) => {
-      if (err) {
-        res.status(400).json(err);
+      if (err || result.length === 0) {
+        err
+          ? res.status(400).json({ msg: "Problem with DB." })
+          : res.status(400).json({ msg: "No such user." });
       } else {
         bcrypt.compare(
           req.body.password,
@@ -36,10 +38,6 @@ router.post("/login", (req, res) => {
                   "SECRETKEY",
                   { expiresIn: "7d" }
                 );
-                con.query(
-                  `UPDATE users SET last_login_date = now() WHERE id = '${result[0].id}'`
-                );
-
                 res.status(200).json({ msg: "Logged In", token });
               }
             }

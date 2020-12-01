@@ -52,7 +52,7 @@ router.post("/register", middleware.validateRegistration, (req, res) => {
           res.status(400).json(err);
         } else {
           con.query(
-            `INSERT INTO w_users (email, password) VALUES ('${email}', '${hash}'`,
+            `INSERT INTO w_users (email, password) VALUES ('${email}', '${hash}')`,
             (err, result) => {
               if (err) {
                 res.status(400).json(err);

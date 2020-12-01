@@ -22,6 +22,14 @@ function InputField({ type, placeholder, options, handleChange }) {
           onChange={handleChange}
         />
       );
+    case "email":
+      return (
+        <S.Input
+          type="email"
+          placeholder={placeholder}
+          onChange={handleChange}
+        />
+      );
     case "dropdown":
       return (
         <S.Select onChange={handleChange} defaultValue>

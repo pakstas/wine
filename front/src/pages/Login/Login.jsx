@@ -42,8 +42,8 @@ function Login() {
         }}
       >
         <InputField
-          type="text"
-          placeholder="Username"
+          type="email"
+          placeholder="Email"
           handleChange={(e) => setData({ ...data, email: e.target.value })}
         />
         <InputField

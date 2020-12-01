@@ -1,7 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Section, Button, InputField } from "../../components";
-import { AuthContext } from "../../context/AuthContext";
 import * as S from "./Register.style";
 
 function registerUser(data, setNotification, history) {
@@ -13,7 +12,7 @@ function registerUser(data, setNotification, history) {
     body: JSON.stringify(data),
   })
     .then((res) => {
-      res.json();
+      return res.json();
     })
     .then((fdata) => {
       setNotification(fdata.msg || "Error");
@@ -23,9 +22,7 @@ function registerUser(data, setNotification, history) {
 
 function Register() {
   const [notification, setNotification] = useState(false);
-  const [success, setSuccess] = useState(true);
   const [data, setData] = useState({ email: "", password: "" });
-  // const auth = useContext(AuthContext);
   const history = useHistory();
 
   return (

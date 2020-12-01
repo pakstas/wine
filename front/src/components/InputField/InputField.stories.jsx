@@ -17,6 +17,13 @@ storiesOf("Input", module)
       handleChange={(e) => console.log(e.target.value)}
     />
   ))
+  .add("Email Field", () => (
+    <InputField
+      type="email"
+      placeholder="Email"
+      handleChange={(e) => console.log(e.target.value)}
+    />
+  ))
   .add("Number Field", () => (
     <InputField
       type="number"

@@ -7,6 +7,7 @@ const HomeLazy = lazy(() => import("./pages/Home/Home"));
 const AboutLazy = lazy(() => import("./pages/About/About"));
 const LoginLazy = lazy(() => import("./pages/Login/Login"));
 const RegisterLazy = lazy(() => import("./pages/Register/Register"));
+const WineTypeLazy = lazy(() => import("./pages/WineType/WineType"));
 
 function Routes() {
   return (
@@ -18,6 +19,7 @@ function Routes() {
           <Route exact path="/login" component={LoginLazy} />
           <Route exact path="/register" component={RegisterLazy} />
           <Route exact path="/about" component={AboutLazy} />
+          <Route exact path="/winetype" component={WineTypeLazy} />
         </Switch>
       </Suspense>
     </Router>

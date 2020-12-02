@@ -14,6 +14,17 @@ function InputField({ type, placeholder, options, handleChange }) {
           onChange={handleChange}
         />
       );
+    case "year":
+      return (
+        <S.Input
+          type="number"
+          step="1"
+          min="1900"
+          max="2020"
+          placeholder={placeholder}
+          onChange={handleChange}
+        />
+      );
     case "password":
       return (
         <S.Input
